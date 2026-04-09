@@ -6,9 +6,10 @@ import { Terminal, Send, Loader2, Sparkles, Server, CheckCircle, Mail, User } fr
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Home() {
-  const { messages, input, handleInputChange, handleSubmit, status } = useChat({
-    maxSteps: 5, // Important: Allows the model to call multiple tools sequentially
-  });
+  const { messages, input, handleInputChange, handleSubmit } = useChat({
+  api: '/api/chat',
+  maxSteps: 5, // This is crucial for your agent to "think" in steps
+});
   
   const bottomRef = useRef<HTMLDivElement>(null);
   
